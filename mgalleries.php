@@ -49,7 +49,7 @@ $gallery_files = defined('GSDATAOTHERPATH')
     padding: 4px 6px;
     border-radius: 4px;
     line-height: 18px !important;
-    background: #FF9900;
+    background: #925DCA;
     color: #fff !important;
 }
 #<?php echo $uid ?> .gal-btn:hover { background: #cc7a00; }
