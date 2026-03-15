@@ -2,12 +2,12 @@
 
 $i18n = [
 
-	'lang_Galleries'	=>	'Galerías',
-	'lang_Title'		=>	'Título',
-	'lang_Action'		=>	'Acción',
-	'lang_Edit'			=>	'Editar',
+	'mg_lang_Galleries'	=>	'Galerías',
+	'mg_lang_Title'		=>	'Título',
+	'mg_lang_Action'		=>	'Acción',
+	'mg_lang_Edit'			=>	'Editar',
 	
-	'lang_No_galleries'	=>	'No se encontraron galerías',
-	'lang_plugin_not_active'	=>	'El plugin Monster Gallery no está activo.',
+	'mg_lang_No_galleries'	=>	'No se encontraron galerías',
+	'mg_lang_plugin_not_active'	=>	'El plugin Monster Gallery no está activo.',
 	
 ];
