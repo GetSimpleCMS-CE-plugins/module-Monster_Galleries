@@ -15,7 +15,9 @@ $i18n_m = dash_module_i18n('mgalleries');
 
 $uid = 'gal_' . substr(md5(__FILE__), 0, 6);
 
-$gallery_files = defined('GSDATAOTHERPATH')
+global $live_plugins;
+$plugin_ok     = isset($live_plugins['monsterGallery.php']) && $live_plugins['monsterGallery.php'] === 'true';
+$gallery_files = ($plugin_ok && defined('GSDATAOTHERPATH'))
     ? (glob(GSDATAOTHERPATH . 'monsterGallery/*.json') ?: array())
     : array();
 ?>
@@ -54,17 +56,21 @@ $gallery_files = defined('GSDATAOTHERPATH')
 }
 #<?php echo $uid ?> .gal-btn:hover { background: #cc7a00; }
 #<?php echo $uid ?> .gal-empty {
-    color: #bbb;
-    font-style: italic;
-    text-align: center;
-    padding: 16px;
+    color: #856404;
+    background: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 13px;
 }
 </style>
 
 <div id="<?php echo $uid ?>">
     <h3><svg xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;" width="24" height="24" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"/><path fill="currentColor" d="M22 16V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2m-11-4l2.03 2.71L16 11l4 5H8zM2 6v14a2 2 0 0 0 2 2h14v-2H4V6z"/></svg> <?php echo $i18n_m('lang_Galleries'); ?></h3>
 
-    <?php if (empty($gallery_files)): ?>
+    <?php if (!$plugin_ok): ?>
+        <p class="gal-empty">⚠ <?php echo $i18n_m('lang_plugin_not_active'); ?>.</p>
+    <?php elseif (empty($gallery_files)): ?>
         <p class="gal-empty"><?php echo $i18n_m('lang_No_galleries'); ?>.</p>
     <?php else: ?>
     <table class="gal-table">
